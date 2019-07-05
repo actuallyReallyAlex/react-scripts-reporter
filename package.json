@@ -1,6 +1,6 @@
 {
   "name": "react-scripts-reporter",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "A reporter for React-Scripts.",
   "main": "index.js",
   "scripts": {},
