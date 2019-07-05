@@ -1,0 +1,26 @@
+{
+  "name": "react-scripts-reporter",
+  "version": "0.0.1",
+  "description": "A reporter for React-Scripts.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexlee-dev/react-scripts-reporter.git"
+  },
+  "keywords": [
+    "react",
+    "react-scripts",
+    "test",
+    "reporter",
+    "jest"
+  ],
+  "author": "Alex Lee <alex@alexlee.dev>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/alexlee-dev/react-scripts-reporter/issues"
+  },
+  "homepage": "https://github.com/alexlee-dev/react-scripts-reporter#readme"
+}
