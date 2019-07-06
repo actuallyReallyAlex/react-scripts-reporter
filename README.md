@@ -7,7 +7,7 @@
 
 <div align="center">
 
-[![NPM Version][npm-image]][npm-url] [![NPM Total Downloads][npm-downloads]][npm-url] [![npm bundle size (minified + gzip)][size-image]][npm-url] [![Coverage Status](https://coveralls.io/repos/github/alexlee-dev/react-scripts-reporter/badge.svg?branch=master)](https://coveralls.io/github/alexlee-dev/react-scripts-reporter?branch=master) [![Build Status](https://travis-ci.org/alexlee-dev/react-scripts-reporter.svg?branch=master)](https://travis-ci.org/alexlee-dev/react-scripts-reporter.svg?branch=master)
+[![NPM Version][npm-image]][npm-url] [![NPM Total Downloads][npm-downloads]][npm-url] [![npm bundle size (minified + gzip)][size-image]][npm-url] [![Coverage Status][coverage-badge][coverage-link]![Build Status][travis][travis]
 
 </div>
 
@@ -45,3 +45,6 @@ react-scripts-reporter is a test reporter for projects built with create-react-a
 [npm-url]: https://www.npmjs.com/package/react-scripts-reporter
 [size-image]: https://img.shields.io/bundlephobia/minzip/react-scripts-reporter.svg
 [react-scripts-reporter-icon]: https://github.com/alexlee-dev/react-scripts-reporter/raw/master/react-scripts-reporter.png
+[coverage-badge]: https://coveralls.io/repos/github/alexlee-dev/react-scripts-reporter/badge.svg?branch=master
+[coverage-link]: https://coveralls.io/github/alexlee-dev/react-scripts-reporter?branch=master
+[travis]: https://travis-ci.org/alexlee-dev/react-scripts-reporter.svg?branch=master
