@@ -3,8 +3,49 @@
   "version": "0.2.0",
   "description": "A reporter for React-Scripts.",
   "main": "dist/main.js",
+  "dependencies": {
+    "ansi-parser": "^3.2.9",
+    "bootstrap": "^4.3.1",
+    "chalk": "^2.4.2",
+    "chart.js": "^2.7.3",
+    "diff2html": "^2.9.0",
+    "holderjs": "^2.9.6",
+    "jquery": "^3.4.1",
+    "moment": "^2.23.0",
+    "mustache": "^3.0.0",
+    "pkg-up": "^3.0.0",
+    "popper.js": "^1.14.6"
+  },
+  "devDependencies": {
+    "@types/chalk": "2.2.0",
+    "@types/chart.js": "2.7.54",
+    "@types/diff2html": "0.0.4",
+    "@types/jest": "22.2.3",
+    "@types/jquery": "3.3.29",
+    "@types/mustache": "0.8.32",
+    "@types/node": "8.10.49",
+    "browserify": "16.2.3",
+    "codecov": "3.5.0",
+    "coveralls": "3.0.4",
+    "jest": "24.8.0",
+    "jest-environment-jsdom": "24.8.0",
+    "jest-environment-node-debug": "2.0.0",
+    "jest-html-reporter": "2.5.0",
+    "jest-image-snapshot": "2.8.2",
+    "jest-junit": "6.4.0",
+    "rimraf": "2.6.3",
+    "ts-jest": "24.0.2",
+    "ts-node": "8.3.0",
+    "tslint": "5.17.0",
+    "tslint-config-prettier": "1.18.0",
+    "typescript": "3.5.2"
+  },
   "scripts": {
-    "build": "webpack --mode production",
+    "clean": "rimraf lib && rimraf coverage",
+    "lint": "tslint --force --format verbose \"src/**/*.ts\"",
+    "prebuild": "npm run clean && npm run lint && echo Using TypeScript && tsc --version",
+    "build": "tsc --pretty && browserify lib/render/view.js -o lib/render/view.js",
+    "example": "npm run build && jest --testRegex __tests__.*\\.example\\.ts$",
     "test": "jest",
     "test:coveralls": "jest --coverage --coverageReporters=text-lcov | coveralls"
   },
@@ -30,23 +71,29 @@
     "url": "https://github.com/alexlee-dev/react-scripts-reporter/issues"
   },
   "homepage": "https://github.com/alexlee-dev/react-scripts-reporter#readme",
-  "devDependencies": {
-    "@babel/core": "^7.5.0",
-    "@babel/preset-env": "^7.5.0",
-    "@babel/preset-react": "^7.0.0",
-    "babel-jest": "^24.8.0",
-    "babel-loader": "^8.0.6",
-    "chalk": "^2.4.2",
-    "coveralls": "^3.0.4",
-    "enzyme": "^3.10.0",
-    "enzyme-adapter-react-16": "^1.14.0",
-    "jest": "^24.8.0",
-    "webpack": "^4.35.2",
-    "webpack-cli": "^3.3.5"
-  },
   "jest": {
+    "testURL": "http://localhost",
+    "modulePathIgnorePatterns": [
+      "__tests__/__snapshots__/"
+    ],
+    "transform": {
+      ".(ts)": "ts-jest"
+    },
+    "testRegex": "__tests__.*\\.(spec|test)\\.ts$",
+    "watchPathIgnorePatterns": [
+      ".*jest-stare.*\\.js"
+    ],
+    "moduleFileExtensions": [
+      "ts",
+      "js"
+    ],
+    "setupFilesAfterEnv": [
+      "<rootDir>/jest.setup.js"
+    ],
+    "testEnvironment": "jsdom",
     "reporters": [
-      "<rootDir>/dist/main.js"
+      "default",
+      "<rootDir>/lib/index.js"
     ]
   }
 }
