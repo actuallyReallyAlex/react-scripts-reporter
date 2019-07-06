@@ -1,6 +1,10 @@
+// import * as chalk from 'chalk'
+const chalk = require('chalk')
+// import Logger from './util/Logger'
+
 class ReactScriptsReporter {
   /**
-   * constructor for the reporter
+   * constructor for the 
    *
    * @param {Object} globalConfig - Jest configuration object
    * @param {Object} options - Options object defined in jest config
@@ -8,6 +12,7 @@ class ReactScriptsReporter {
   constructor(globalConfig, options) {
     this._globalConfig = globalConfig
     this._options = options
+    // this.logger = new Logger()
   }
 
   /**
@@ -18,7 +23,12 @@ class ReactScriptsReporter {
    * @param {JestRunConfig} - Run configuration
    */
   onRunStart(runResults, runConfig) {
-    console.log(`onRunStart arguments: ${JSON.stringify(arguments, null, 2)}`)
+    // this.logger.info(`onRunStart arguments: ${JSON.stringify(arguments, null, 2)}`)
+    console.clear()
+    console.log(chalk.blue('this should be blue'))
+    // this.logger.info(chalk.green('react-scripts-reporter'))
+    // this.logger.info(chalk.blue('----------------------'))
+    // this.logger.info('')
   }
 
   /**
@@ -30,7 +40,7 @@ class ReactScriptsReporter {
    * @param {JestTestRunResult} - Results for the test run at the point in time of the test suite being executed
    */
   onTestResult(testRunConfig, testResults, runResults) {
-    console.log(`onTestResult arguments: ${JSON.stringify(arguments, null, 2)}`)
+    // this.logger.info(`onTestResult arguments: ${JSON.stringify(arguments, null, 2)}`)
   }
 
   /**
@@ -41,10 +51,16 @@ class ReactScriptsReporter {
    * @param {JestTestRunResult} - Results from the test run
    */
   onRunComplete(test, runResults) {
-    console.log(
-      `onRunComplete arguments: ${JSON.stringify(arguments, null, 2)}`
-    )
+    // this.logger.info(
+    //   `onRunComplete arguments: ${JSON.stringify(arguments, null, 2)}`
+    // )
+    // this.logger.info('')
+    // this.logger.info(chalk.blue('----------------------'))
+    // this.logger.info(chalk.green('COMPLETE'))
+    // this.logger.info(chalk.blue('----------------------'))
+    // this.logger.info('')
   }
 }
+
 
 module.exports = ReactScriptsReporter
