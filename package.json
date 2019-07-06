@@ -14,6 +14,7 @@
     "coveralls": "3.0.4",
     "jest": "24.8.0",
     "jest-environment-jsdom": "24.8.0",
+    "nyc": "^14.1.1",
     "rimraf": "2.6.3",
     "ts-jest": "24.0.2",
     "ts-node": "8.3.0",
@@ -27,8 +28,8 @@
     "prebuild": "yarn clean && yarn lint && echo Using TypeScript && tsc --version",
     "build": "tsc --pretty && browserify lib/render/view.js -o lib/render/view.js",
     "example": "yarn build && jest --testRegex __tests__.*\\.example\\.ts$",
-    "test": "jest",
-    "test:coveralls": "jest --coverage --coverageReporters=text-lcov | coveralls"
+    "test": "jest --coverage",
+    "coveralls": "yarn test && nyc report --reporter=text-lcov | coveralls"
   },
   "repository": {
     "type": "git",
