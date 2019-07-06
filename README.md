@@ -20,7 +20,7 @@
 ## 📝 Table of Contents
 
 - [About](#about)
-- [Built Using](#built_using)
+<!-- - [Built Using](#built_using) -->
 - [Author](#author)
 - [Acknowledgments](#acknowledgement)
 
