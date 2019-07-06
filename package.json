@@ -28,7 +28,7 @@
     "build": "tsc --pretty && browserify lib/render/view.js -o lib/render/view.js",
     "example": "yarn build && jest --testRegex __tests__.*\\.example\\.ts$",
     "test": "jest",
-    "test:coveralls": "jest --coverage --coverageReporters=text-lcov | coveralls"
+    "test:coveralls": "NODE_ENV=test jest --coverage --coverageReporters=text-lcov | coveralls"
   },
   "repository": {
     "type": "git",
