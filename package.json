@@ -4,7 +4,13 @@
   "description": "A reporter for React-Scripts.",
   "main": "lib/index.js",
   "dependencies": {
-    "chalk": "^2.4.2"
+    "@types/figlet": "^1.2.0",
+    "@types/gradient-string": "^1.1.0",
+    "boxen": "^4.1.0",
+    "chalk": "^2.4.2",
+    "figlet": "^1.2.3",
+    "gradient-string": "^1.2.0",
+    "progress": "^2.0.3"
   },
   "devDependencies": {
     "@types/chalk": "2.2.0",
@@ -72,7 +78,7 @@
     ],
     "testEnvironment": "jsdom",
     "reporters": [
-      "default"
+      "<rootDir>/lib/index.js"
     ]
   }
 }
