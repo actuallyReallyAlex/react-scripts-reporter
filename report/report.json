@@ -25,7 +25,7 @@
     "unmatched": 0,
     "updated": 0
   },
-  "startTime": 1562515343433,
+  "startTime": 1562515679214,
   "success": false,
   "testResults": [
     {
@@ -35,8 +35,8 @@
       "numPendingTests": 0,
       "numTodoTests": 0,
       "perfStats": {
-        "end": 1562515346151,
-        "start": 1562515344606
+        "end": 1562515681875,
+        "start": 1562515680329
       },
       "snapshot": {
         "added": 0,
@@ -53,7 +53,7 @@
           "ancestorTitles": [
             "Entry"
           ],
-          "duration": 12,
+          "duration": 6,
           "failureMessages": [],
           "fullName": "Entry Should return the Reporter.",
           "location": null,
@@ -65,7 +65,7 @@
           "ancestorTitles": [
             "Entry"
           ],
-          "duration": 43,
+          "duration": 45,
           "failureMessages": [],
           "fullName": "Entry Should return the Processor.",
           "location": null,
@@ -84,8 +84,8 @@
       "numPendingTests": 0,
       "numTodoTests": 0,
       "perfStats": {
-        "end": 1562515346265,
-        "start": 1562515344606
+        "end": 1562515681986,
+        "start": 1562515680329
       },
       "snapshot": {
         "added": 0,
@@ -102,7 +102,7 @@
           "ancestorTitles": [
             "Reporter"
           ],
-          "duration": 44,
+          "duration": 53,
           "failureMessages": [],
           "fullName": "Reporter Should create an instance of the Reporter class.",
           "location": null,
@@ -114,7 +114,7 @@
           "ancestorTitles": [
             "Reporter"
           ],
-          "duration": 29,
+          "duration": 41,
           "failureMessages": [],
           "fullName": "Reporter Should call onRunStart.",
           "location": null,
@@ -126,7 +126,7 @@
           "ancestorTitles": [
             "Reporter"
           ],
-          "duration": 47,
+          "duration": 39,
           "failureMessages": [],
           "fullName": "Reporter Should call onRunComplete().",
           "location": null,

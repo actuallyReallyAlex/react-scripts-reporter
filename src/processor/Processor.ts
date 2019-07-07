@@ -6,6 +6,25 @@ export class Processor {
   }
 
   constructor(results: jest.AggregatedResult, config: {}) {
+    if (!fs.existsSync("./report")) {
+      fs.mkdirSync("./report");
+    }
+
+    this.createReportJSON(results);
+
+    this.createReport(results);
+
+    console.log("Files written");
+  }
+
+  public createReportJSON(results: jest.AggregatedResult) {
+    fs.writeFileSync(
+      "./report/report.json",
+      JSON.stringify({ ...results }, null, 2)
+    );
+  }
+
+  public createReport(results: jest.AggregatedResult) {
     const {
       numFailedTestSuites,
       numFailedTests,
@@ -14,15 +33,6 @@ export class Processor {
       numPendingTestSuites,
       numPendingTests
     } = results;
-
-    if (!fs.existsSync("./report")) {
-      fs.mkdirSync("./report");
-    }
-
-    fs.writeFileSync(
-      "./report/report.json",
-      JSON.stringify({ ...results }, null, 2)
-    );
 
     fs.writeFileSync(
       "./report/index.html",
@@ -39,6 +49,5 @@ export class Processor {
         </body>
       </html>`
     );
-    console.log("Files written");
   }
 }

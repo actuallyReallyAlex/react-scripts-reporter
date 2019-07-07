@@ -65,3 +65,6 @@ lib/
 
 #.vscode files
 .vscode/
+
+# Report
+report/
