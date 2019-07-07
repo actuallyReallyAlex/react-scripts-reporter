@@ -30,7 +30,7 @@
     "build": "tsc --pretty && browserify lib/render/view.js -o lib/render/view.js",
     "example": "yarn build && jest --testRegex __tests__.*\\.example\\.ts$",
     "test": "jest --coverage",
-    "coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
+    "coveralls": "jest --coverage --coverageReporters=text-lcov | coveralls"
   },
   "repository": {
     "type": "git",
@@ -72,8 +72,7 @@
     ],
     "testEnvironment": "jsdom",
     "reporters": [
-      "default",
-      "<rootDir>/lib/index.js"
+      "default"
     ]
   }
 }
