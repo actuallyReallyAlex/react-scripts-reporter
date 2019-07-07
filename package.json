@@ -2,11 +2,35 @@
   "name": "react-scripts-reporter",
   "version": "0.2.0",
   "description": "A reporter for React-Scripts.",
-  "main": "dist/main.js",
+  "main": "lib/index.js",
+  "dependencies": {
+    "chalk": "^2.4.2"
+  },
+  "devDependencies": {
+    "@types/chalk": "2.2.0",
+    "@types/jest": "22.2.3",
+    "@types/node": "8.10.49",
+    "browserify": "16.2.3",
+    "coveralls": "^3.0.4",
+    "jest": "24.8.0",
+    "jest-environment-jsdom": "24.8.0",
+    "mocha-lcov-reporter": "^1.3.0",
+    "nyc": "^14.1.1",
+    "rimraf": "2.6.3",
+    "ts-jest": "24.0.2",
+    "ts-node": "8.3.0",
+    "tslint": "5.17.0",
+    "tslint-config-prettier": "1.18.0",
+    "typescript": "3.5.2"
+  },
   "scripts": {
-    "build": "webpack --mode production",
-    "test": "jest",
-    "test:coveralls": "jest --coverage --coverageReporters=text-lcov | coveralls"
+    "clean": "rimraf lib && rimraf coverage",
+    "lint": "tslint --force --format verbose \"src/**/*.ts\"",
+    "prebuild": "yarn clean && yarn lint && echo Using TypeScript && tsc --version",
+    "build": "tsc --pretty && browserify lib/render/view.js -o lib/render/view.js",
+    "example": "yarn build && jest --testRegex __tests__.*\\.example\\.ts$",
+    "test": "jest --coverage",
+    "coveralls": "jest --coverage --coverageReporters=text-lcov | coveralls"
   },
   "repository": {
     "type": "git",
@@ -20,7 +44,7 @@
     "jest"
   ],
   "files": [
-    "dist",
+    "lib",
     "LICENSE",
     "README.md"
   ],
@@ -30,23 +54,25 @@
     "url": "https://github.com/alexlee-dev/react-scripts-reporter/issues"
   },
   "homepage": "https://github.com/alexlee-dev/react-scripts-reporter#readme",
-  "devDependencies": {
-    "@babel/core": "^7.5.0",
-    "@babel/preset-env": "^7.5.0",
-    "@babel/preset-react": "^7.0.0",
-    "babel-jest": "^24.8.0",
-    "babel-loader": "^8.0.6",
-    "chalk": "^2.4.2",
-    "coveralls": "^3.0.4",
-    "enzyme": "^3.10.0",
-    "enzyme-adapter-react-16": "^1.14.0",
-    "jest": "^24.8.0",
-    "webpack": "^4.35.2",
-    "webpack-cli": "^3.3.5"
-  },
   "jest": {
+    "testURL": "http://localhost",
+    "modulePathIgnorePatterns": [
+      "__tests__/__snapshots__/"
+    ],
+    "transform": {
+      ".(ts)": "ts-jest"
+    },
+    "testRegex": "__tests__.*\\.(spec|test)\\.ts$",
+    "watchPathIgnorePatterns": [
+      ".*jest-stare.*\\.js"
+    ],
+    "moduleFileExtensions": [
+      "ts",
+      "js"
+    ],
+    "testEnvironment": "jsdom",
     "reporters": [
-      "<rootDir>/dist/main.js"
+      "default"
     ]
   }
 }

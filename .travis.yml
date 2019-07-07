@@ -1,6 +1,7 @@
 language: node_js
 node_js:
-  - 'node'
+  - "node"
 script:
   - yarn build
-  - yarn run test:coveralls
+  - yarn test
+  - yarn coveralls
