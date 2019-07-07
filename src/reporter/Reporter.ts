@@ -40,7 +40,9 @@ export class Reporter {
       numFailedTestSuites,
       numFailedTests,
       numPassedTestSuites,
-      numPassedTests
+      numPassedTests,
+      numPendingTestSuites,
+      numPendingTests
     } = results;
 
     console.log(chalk.default.green("COMPLETE"));
@@ -70,8 +72,12 @@ export class Reporter {
           ? chalk.default.red(`${numPassedTests}`)
           : chalk.default.green(`${numPassedTests}`))
     );
-
-    console.clear();
-    console.log({ contexts });
+    console.log(
+      "Number of Skipped Test Suites: " +
+        chalk.default.yellow(`${numPendingTestSuites}`)
+    );
+    console.log(
+      "Number of Skipped Tests: " + chalk.default.yellow(`${numPendingTests}`)
+    );
   }
 }
