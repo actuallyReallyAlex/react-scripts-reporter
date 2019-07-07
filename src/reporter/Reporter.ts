@@ -5,8 +5,8 @@ import ProgressBar = require("progress");
 import chalk = require("chalk");
 
 export class Reporter {
-  private completedTests: number;
-  private progressBar: ProgressBar;
+  public completedTests: number;
+  public progressBar: ProgressBar;
 
   constructor(config: any, options: any) {
     this.completedTests = 0;

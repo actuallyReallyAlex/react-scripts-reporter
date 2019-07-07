@@ -34,7 +34,7 @@
     "lint": "tslint --force --format verbose \"src/**/*.ts\"",
     "prebuild": "yarn clean && yarn lint && echo Using TypeScript && tsc --version",
     "build": "tsc --pretty && browserify lib/render/view.js -o lib/render/view.js",
-    "example": "yarn build && jest --testRegex __tests__.*\\.example\\.ts$",
+    "dev": "yarn build && jest",
     "test": "jest --coverage",
     "coveralls": "jest --coverage --coverageReporters=text-lcov | coveralls"
   },
@@ -78,6 +78,7 @@
     ],
     "testEnvironment": "jsdom",
     "reporters": [
+      "default",      
       "<rootDir>/lib/index.js"
     ]
   }
