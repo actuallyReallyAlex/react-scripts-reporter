@@ -11,16 +11,33 @@ describe("Reporter", () => {
     reporter.onRunStart({ numTotalTestSuites: 1 }, {});
   });
 
-  it("Should increase the number of completed tests when onTestResult is called.", () => {
+  it("Should call onRunComplete().", () => {
+    const context: Set<jest.Context> = undefined;
+    const agg: jest.AggregatedResult = {
+      numFailedTestSuites: 0,
+      numFailedTests: 0,
+      numPassedTestSuites: 1,
+      numPassedTests: 1,
+      numPendingTests: 0,
+      numPendingTestSuites: 0,
+      numRuntimeErrorTestSuites: 0,
+      numTotalTestSuites: 0,
+      numTotalTests: 0,
+      snapshot: undefined,
+      startTime: 0,
+      success: true,
+      wasInterrupted: false,
+      testResults: undefined
+    };
     const reporter = new Reporter({}, {});
-    reporter.onRunStart({ numTotalTestSuites: 10 }, {});
-    expect(reporter.completedTests).toBe(0);
-    reporter.onTestResult({}, {}, {});
-    expect(reporter.completedTests).toBe(1);
+    reporter.onRunComplete(context, agg);
   });
 
-  it("Should call onRunComplete().", () => {
+  it("Should tick the progressbar on each test finishing.", () => {
     const reporter = new Reporter({}, {});
-    reporter.onRunComplete({}, {});
+    reporter.progressBar = { tick: jest.fn() };
+    expect(reporter.progressBar.tick).toHaveBeenCalledTimes(0);
+    reporter.onTestResult({}, {}, {});
+    expect(reporter.progressBar.tick).toHaveBeenCalledTimes(1);
   });
 });

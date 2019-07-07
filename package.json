@@ -35,7 +35,7 @@
     "prebuild": "yarn clean && yarn lint && echo Using TypeScript && tsc --version",
     "build": "tsc --pretty && browserify lib/render/view.js -o lib/render/view.js",
     "dev": "yarn build && jest",
-    "test": "jest --coverage",
+    "test": "jest --reporters=default --coverage",
     "coveralls": "jest --coverage --coverageReporters=text-lcov | coveralls"
   },
   "repository": {
@@ -78,7 +78,6 @@
     ],
     "testEnvironment": "jsdom",
     "reporters": [
-      "default",
       "<rootDir>/lib/index.js"
     ]
   }

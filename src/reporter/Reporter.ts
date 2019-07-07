@@ -5,13 +5,9 @@ import ProgressBar = require("progress");
 import chalk = require("chalk");
 
 export class Reporter {
-  public completedTests: number;
-  public failedTests: number;
-  public passedTests: number;
   public progressBar: ProgressBar;
 
   constructor(config: any, options: any) {
-    this.completedTests = 0;
     const borderStyle = boxen.BorderStyle.Double;
     console.clear();
     console.log(
@@ -33,7 +29,6 @@ export class Reporter {
   }
 
   public onTestResult(testRunConfig: any, testResults: any, runResults: any) {
-    this.completedTests++;
     this.progressBar.tick();
   }
 
@@ -41,10 +36,16 @@ export class Reporter {
     contexts: Set<jest.Context>,
     results: jest.AggregatedResult
   ) {
-    const { numFailedTestSuites, numFailedTests } = results;
+    const {
+      numFailedTestSuites,
+      numFailedTests,
+      numPassedTestSuites,
+      numPassedTests
+    } = results;
 
     console.log(chalk.default.green("COMPLETE"));
     console.log("\n");
+    // console.log({ results });
     console.log(
       "Number of Failed Test Suites: " +
         (numFailedTestSuites > 0
@@ -57,5 +58,20 @@ export class Reporter {
           ? chalk.default.red(`${numFailedTests}`)
           : chalk.default.green(`${numFailedTests}`))
     );
+    console.log(
+      "Number of Passed Test Suites: " +
+        (numPassedTestSuites === 0
+          ? chalk.default.red(`${numPassedTestSuites}`)
+          : chalk.default.green(`${numPassedTestSuites}`))
+    );
+    console.log(
+      "Number of Passed Tests: " +
+        (numPassedTests === 0
+          ? chalk.default.red(`${numPassedTests}`)
+          : chalk.default.green(`${numPassedTests}`))
+    );
+
+    console.clear();
+    console.log({ contexts });
   }
 }
