@@ -3,6 +3,7 @@ import gradient = require("gradient-string");
 import boxen = require("boxen");
 import ProgressBar = require("progress");
 import chalk = require("chalk");
+import { Processor } from "../processor/Processor";
 
 export class Reporter {
   public progressBar: ProgressBar;
@@ -79,5 +80,7 @@ export class Reporter {
     console.log(
       "Number of Skipped Tests: " + chalk.default.yellow(`${numPendingTests}`)
     );
+
+    Processor.run(results, {});
   }
 }
