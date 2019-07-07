@@ -1,6 +1,6 @@
 {
   "name": "react-scripts-reporter",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "A reporter for React-Scripts.",
   "main": "lib/index.js",
   "dependencies": {
@@ -78,7 +78,7 @@
     ],
     "testEnvironment": "jsdom",
     "reporters": [
-      "default",      
+      "default",
       "<rootDir>/lib/index.js"
     ]
   }
