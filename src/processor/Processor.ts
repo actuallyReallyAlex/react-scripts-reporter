@@ -25,12 +25,12 @@ export class Processor {
   }
 
   public createReportHTML() {
-    const html = fs.readFileSync("src/renderer/index.html");
+    const html = fs.readFileSync("lib/renderer/index.html");
     fs.writeFileSync("./report/index.html", html);
   }
 
   public createReportJS() {
-    const js = fs.readFileSync("src/renderer/main.js");
+    const js = fs.readFileSync("lib/renderer/main.js");
     fs.writeFileSync("./report/main.js", js);
   }
 }
