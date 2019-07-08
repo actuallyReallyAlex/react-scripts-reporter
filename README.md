@@ -7,7 +7,7 @@
 
 <div align="center">
 
-[![NPM Version][npm-image]][npm-url] [![NPM Total Downloads][npm-downloads]][npm-url] [![npm bundle size (minified + gzip)][size-image]][npm-url] [![Coverage Status][coverage-badge]][coverage-link][![Build Status][travis]][travis]
+[![NPM Version][npm-image]][npm-url] [![NPM Total Downloads][npm-downloads]][npm-url] [![Coverage Status][coverage-badge]][coverage-link] [![Build Status][travis]][travis]
 
 </div>
 
