@@ -38,7 +38,7 @@
     "webpack-cli": "^3.3.5"
   },
   "scripts": {
-    "clean": "rimraf lib && rimraf coverage",
+    "clean": "rimraf lib && rimraf coverage && rimraf report",
     "lint": "tslint --force --format verbose \"src/**/*.ts\"",
     "prebuild": "yarn clean && yarn lint",
     "build": "tsc --pretty",
@@ -61,7 +61,6 @@
   ],
   "files": [
     "lib",
-    "report",
     "LICENSE",
     "README.md"
   ],

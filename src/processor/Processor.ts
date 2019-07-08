@@ -11,6 +11,8 @@ export class Processor {
     }
 
     this.createReportJSON(results);
+    this.createReportHTML();
+    this.createReportJS();
 
     console.log("Report generated.");
   }
@@ -20,5 +22,15 @@ export class Processor {
       "./report/report.json",
       JSON.stringify({ ...results }, null, 2)
     );
+  }
+
+  public createReportHTML() {
+    const html = fs.readFileSync("src/renderer/index.html");
+    fs.writeFileSync("./report/index.html", html);
+  }
+
+  public createReportJS() {
+    const js = fs.readFileSync("src/renderer/main.js");
+    fs.writeFileSync("./report/main.js", js);
   }
 }
