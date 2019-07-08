@@ -37,7 +37,6 @@ export class Reporter {
     contexts: any,
     results: jest.AggregatedResult
   ) {
-    console.log({ contexts });
     const {
       numFailedTestSuites,
       numFailedTests,
@@ -48,8 +47,6 @@ export class Reporter {
     } = results;
 
     console.log(chalk.default.green("COMPLETE"));
-    console.log("\n");
-    // console.log({ results });
     console.log(
       "Number of Failed Test Suites: " +
         (numFailedTestSuites > 0
