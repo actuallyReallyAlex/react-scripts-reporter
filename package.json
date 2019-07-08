@@ -8,10 +8,14 @@
     "chalk": "^2.4.2",
     "figlet": "^1.2.3",
     "gradient-string": "^1.2.0",
-    "progress": "^2.0.3"
+    "progress": "^2.0.3",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "serve": "^11.0.2"
   },
   "devDependencies": {
     "@types/chalk": "2.2.0",
+    "@types/express": "^4.17.0",
     "@types/figlet": "^1.2.0",
     "@types/gradient-string": "^1.1.0",
     "@types/jest": "22.2.3",
@@ -33,6 +37,7 @@
     "prebuild": "yarn clean && yarn lint",
     "build": "tsc --pretty",
     "dev": "yarn build && jest",
+    "serve": "yarn build && jest && serve report",
     "test": "jest --reporters=default --coverage",
     "coveralls": "jest --coverage --coverageReporters=text-lcov | coveralls"
   },
