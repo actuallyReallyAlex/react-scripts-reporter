@@ -1,12 +1,12 @@
-import figlet = require("figlet");
+import figlet from "figlet";
 import gradient = require("gradient-string");
 import boxen = require("boxen");
-import ProgressBar = require("progress");
+import ProgressBar from "progress";
 import chalk = require("chalk");
 import { Processor } from "../processor/Processor";
 
 export class Reporter {
-  public progressBar: ProgressBar;
+  public progressBar!: ProgressBar;
 
   constructor(config: any, options: any) {
     const borderStyle = boxen.BorderStyle.Double;
@@ -34,9 +34,10 @@ export class Reporter {
   }
 
   public onRunComplete(
-    contexts: Set<jest.Context>,
+    contexts: any,
     results: jest.AggregatedResult
   ) {
+    console.log({ contexts });
     const {
       numFailedTestSuites,
       numFailedTests,
