@@ -44,7 +44,7 @@
     "build": "tsc --pretty",
     "build-renderer": "webpack --mode production --display-error-details",
     "dev": "yarn build && jest",
-    "serve": "yarn build && jest && serve report",
+    "serve": "jest && serve report",
     "test": "jest --reporters=default --coverage",
     "coveralls": "jest --coverage --coverageReporters=text-lcov | coveralls"
   },
@@ -61,6 +61,7 @@
   ],
   "files": [
     "lib",
+    "report",
     "LICENSE",
     "README.md"
   ],
