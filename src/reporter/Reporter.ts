@@ -33,10 +33,7 @@ export class Reporter {
     this.progressBar.tick();
   }
 
-  public onRunComplete(
-    contexts: any,
-    results: jest.AggregatedResult
-  ) {
+  public onRunComplete(contexts: any, results: jest.AggregatedResult) {
     const {
       numFailedTestSuites,
       numFailedTests,
