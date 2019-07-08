@@ -1,4 +1,5 @@
 import fs = require("fs");
+import path = require("path");
 
 export class Processor {
   public static run(results: jest.AggregatedResult, config: {}) {
@@ -25,12 +26,14 @@ export class Processor {
   }
 
   public createReportHTML() {
-    const html = fs.readFileSync("lib/renderer/index.html");
+    const html = fs.readFileSync(
+      path.resolve(__dirname, "lib/renderer/index.html")
+    );
     fs.writeFileSync("./report/index.html", html);
   }
 
   public createReportJS() {
-    const js = fs.readFileSync("lib/renderer/main.js");
+    const js = fs.readFileSync(path.resolve(__dirname, "lib/renderer/main.js"));
     fs.writeFileSync("./report/main.js", js);
   }
 }
