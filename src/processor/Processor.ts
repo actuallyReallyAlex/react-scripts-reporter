@@ -1,4 +1,5 @@
 import fs = require("fs");
+import Mustache = require("mustache");
 
 export class Processor {
   public static run(results: jest.AggregatedResult, config: {}) {
@@ -34,20 +35,27 @@ export class Processor {
       numPendingTests
     } = results;
 
-    fs.writeFileSync(
-      "./report/index.html",
-      `<html>
-        <body>
-          <div>
-            <p>Number of Failed Test Suites: ${numFailedTestSuites}</p>
-            <p>Number of Failed Tests: ${numFailedTests}</p>
-            <p>Number of Passed Test Suites: ${numPassedTestSuites}</p>
-            <p>Number of Passed Tests: ${numPassedTests}</p>
-            <p>Number of Skipped Test Suites: ${numPendingTestSuites}</p>
-            <p>Number of Skipped Tests: ${numPendingTests}</p>
-          </div>
-        </body>
-      </html>`
-    );
+    const data = fs.readFileSync("./src/processor/index.html").toString("utf8");
+
+    console.log(`Type of 'data' = ${typeof data}`);
+
+    const renderedHTML = Mustache.render(data, {
+      numFailedTestSuites,
+      numFailedTests,
+      numPassedTestSuites,
+      numPassedTests,
+      numPendingTestSuites,
+      numPendingTests
+    });
+
+    console.log({ renderedHTML });
+
+    // unction loadUser() {
+    //   var template = document.getElementById('template').innerHTML
+    //   Mustache.parse(template);   // optional, speeds up future uses
+    //   var rendered = Mustache.render(template, {name: "Luke"});
+    // $('#target').html(rendered);
+
+    fs.writeFileSync("./report/index.html", renderedHTML);
   }
 }
