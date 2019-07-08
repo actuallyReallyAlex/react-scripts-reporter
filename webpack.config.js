@@ -17,7 +17,7 @@ module.exports = {
     extensions: ["*", ".js", ".jsx"]
   },
   output: {
-    path: __dirname + "/report"
+    path: __dirname + "/src/renderer/"
   }
   // resolve: {
   //   alias: {
