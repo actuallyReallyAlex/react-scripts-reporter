@@ -14,6 +14,9 @@
     "serve": "^11.0.2"
   },
   "devDependencies": {
+    "@babel/core": "^7.5.0",
+    "@babel/preset-env": "^7.5.0",
+    "@babel/preset-react": "^7.0.0",
     "@types/chalk": "2.2.0",
     "@types/express": "^4.17.0",
     "@types/figlet": "^1.2.0",
@@ -21,6 +24,7 @@
     "@types/jest": "22.2.3",
     "@types/node": "8.10.49",
     "@types/progress": "^2.0.3",
+    "babel-loader": "^8.0.6",
     "coveralls": "^3.0.4",
     "jest": "24.7.1",
     "jest-environment-jsdom": "24.8.0",
@@ -29,13 +33,16 @@
     "ts-node": "8.3.0",
     "tslint": "5.17.0",
     "tslint-config-prettier": "1.18.0",
-    "typescript": "3.5.2"
+    "typescript": "3.5.2",
+    "webpack": "^4.35.2",
+    "webpack-cli": "^3.3.5"
   },
   "scripts": {
     "clean": "rimraf lib && rimraf coverage",
     "lint": "tslint --force --format verbose \"src/**/*.ts\"",
     "prebuild": "yarn clean && yarn lint",
     "build": "tsc --pretty",
+    "build-renderer": "webpack --mode production --display-error-details",
     "dev": "yarn build && jest",
     "serve": "yarn build && jest && serve report",
     "test": "jest --reporters=default --coverage",
