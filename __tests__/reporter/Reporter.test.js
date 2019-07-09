@@ -1,4 +1,4 @@
-import { Reporter } from "../../src/reporter/Reporter";
+import { Reporter } from "../../lib/reporter/Reporter";
 
 describe("Reporter", () => {
   it("Should create an instance of the Reporter class.", () => {
@@ -12,8 +12,8 @@ describe("Reporter", () => {
   });
 
   it("Should call onRunComplete().", () => {
-    const context: any = {};
-    const agg: jest.AggregatedResult = {
+    const context = {};
+    const agg = {
       numFailedTestSuites: 0,
       numFailedTests: 0,
       numPassedTestSuites: 1,

@@ -27,13 +27,13 @@ export class Processor {
 
   public createReportHTML() {
     const html = fs.readFileSync(
-      path.resolve(__dirname, "lib/renderer/index.html")
+      path.resolve(__dirname, "../renderer/index.html")
     );
     fs.writeFileSync("./report/index.html", html);
   }
 
   public createReportJS() {
-    const js = fs.readFileSync(path.resolve(__dirname, "lib/renderer/main.js"));
+    const js = fs.readFileSync(path.resolve(__dirname, "../renderer/main.js"));
     fs.writeFileSync("./report/main.js", js);
   }
 }
