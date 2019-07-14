@@ -3,7 +3,7 @@ import axios from "axios";
 
 const App = () => {
   useEffect(() => {
-    axios.get("http://localhost:5555/").then(response => {
+    axios.get("http://localhost:5000/report").then(response => {
       console.log({ response });
       setReport(response.data);
     });
