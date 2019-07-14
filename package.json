@@ -13,9 +13,12 @@
     "express": "^4.17.1",
     "figlet": "^1.2.3",
     "gradient-string": "^1.2.0",
+    "grommet": "^2.7.3",
+    "grommet-icons": "^4.2.0",
     "progress": "^2.0.3",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react-dom": "^16.8.6",
+    "styled-components": "^4.3.2"
   },
   "devDependencies": {
     "@babel/core": "^7.5.0",

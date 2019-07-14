@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { Box, Text, Heading } from "grommet";
 
 const App = () => {
   useEffect(() => {
@@ -19,14 +20,15 @@ const App = () => {
   });
 
   return (
-    <div>
-      <p>Number of Failed Test Suites: {report.numFailedTestSuites}</p>
-      <p>Number of Failed Tests: {report.numFailedTests}</p>
-      <p>Number of Passed Test Suites: {report.numPassedTestSuites}</p>
-      <p>Number of Passed Tests: {report.numPassedTests}</p>
-      <p>Number of Skipped Test Suites: {report.numPendingTestSuites}</p>
-      <p>Number of Skipped Tests: {report.numPendingTests}</p>
-    </div>
+    <Box align="center" fill justify="center">
+      <Heading level="1">Test Results</Heading>
+      <Text>Number of Failed Test Suites: {report.numFailedTestSuites}</Text>
+      <Text>Number of Failed Tests: {report.numFailedTests}</Text>
+      <Text>Number of Passed Test Suites: {report.numPassedTestSuites}</Text>
+      <Text>Number of Passed Tests: {report.numPassedTests}</Text>
+      <Text>Number of Skipped Test Suites: {report.numPendingTestSuites}</Text>
+      <Text>Number of Skipped Tests: {report.numPendingTests}</Text>
+    </Box>
   );
 };
 
