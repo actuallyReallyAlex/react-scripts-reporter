@@ -3,9 +3,14 @@
   "version": "0.5.4",
   "description": "A reporter for React-Scripts.",
   "main": "lib/index.js",
+  "bin": {
+    "react-scripts-reporter": "lib/cli.js"
+  },
   "dependencies": {
+    "axios": "^0.19.0",
     "boxen": "^4.1.0",
     "chalk": "^2.4.2",
+    "express": "^4.17.1",
     "figlet": "^1.2.3",
     "gradient-string": "^1.2.0",
     "progress": "^2.0.3",
@@ -48,7 +53,8 @@
     "dev": "yarn build && jest",
     "serve": "jest && serve report",
     "test": "jest --reporters=default --coverage",
-    "coveralls": "jest --coverage --coverageReporters=text-lcov | coveralls"
+    "coveralls": "jest --coverage --coverageReporters=text-lcov | coveralls",
+    "build-cli": "yarn dev && chmod +x lib/cli.js && react-scripts-reporter serve"
   },
   "repository": {
     "type": "git",
