@@ -16,7 +16,8 @@ if (args[0] === "--serve") {
   });
 
   app.get("/report", (req, res) => {
-    res.send(path.join(__dirname, "../../../report/report.json"));
+    console.log({ __dirname });
+    res.sendFile(path.join(__dirname, "../../../report/report.json"));
   });
 
   app.listen(port, () => {
