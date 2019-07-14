@@ -16,8 +16,7 @@ if (args[0] === "--serve") {
   });
 
   app.get("/report", (req, res) => {
-    const file = require("../report/report.json");
-    res.send(file);
+    res.send(path.join(__dirname, "/report/report.json"));
   });
 
   app.listen(port, () => {
