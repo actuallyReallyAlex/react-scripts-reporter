@@ -16,7 +16,6 @@ if (args[0] === "--serve") {
   });
 
   app.get("/report", (req, res) => {
-    console.log({ __dirname });
     res.sendFile(path.join(__dirname, "../../../report/report.json"));
   });
 
