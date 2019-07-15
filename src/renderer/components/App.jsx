@@ -28,7 +28,7 @@ const App = () => {
   const [root, setRoot] = useState(null);
 
   return (
-    <Box direction="row" fill>
+    <Box background="dark-1" direction="row" fill>
       <Sidebar report={report} root={root} />
       <Box fill pad="small">
         <Box fill="horizontal">
