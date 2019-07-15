@@ -1,21 +1,14 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import { Accordion, Box, Heading, Text } from "grommet";
+import { Accordion, Box, Text } from "grommet";
 import TestResult from "./TestResult";
 import Sidebar from "./Sidebar";
-import { setReport, setRoot } from "../redux/actions/config";
+import { getReport, getRoot } from "../redux/actions/config";
 
 const App = ({ config, dispatch }) => {
   useEffect(() => {
-    axios.get("http://localhost:5000/report").then(response => {
-      console.log({ data: response.data });
-      dispatch(setReport(response.data));
-    });
-
-    axios.get("http://localhost:5000/root").then(response => {
-      dispatch(setRoot(response.data));
-    });
+    dispatch(getReport());
+    dispatch(getRoot());
   }, []);
 
   return (
