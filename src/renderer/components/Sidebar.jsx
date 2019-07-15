@@ -3,7 +3,12 @@ import { Box, Paragraph, Heading, Text } from "grommet";
 
 const Sidebar = ({ report, root }) => {
   return (
-    <Box fill="vertical" pad="small" width="350px">
+    <Box
+      border={{ color: "white", side: "right" }}
+      fill="vertical"
+      pad="small"
+      width="350px"
+    >
       <Heading level="1" size="medium">
         Test Results
       </Heading>
