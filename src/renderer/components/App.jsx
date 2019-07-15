@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Accordion, Box, Heading, Text, Paragraph } from "grommet";
+import { Accordion, Box, Heading, Text } from "grommet";
 import TestResult from "./TestResult";
 
 const App = () => {
@@ -8,6 +8,10 @@ const App = () => {
     axios.get("http://localhost:5000/report").then(response => {
       console.log({ data: response.data });
       setReport(response.data);
+    });
+
+    axios.get("http://localhost:5000/root").then(response => {
+      setRoot(response.data);
     });
   }, []);
 
@@ -20,6 +24,7 @@ const App = () => {
     numPendingTests: null,
     testResults: []
   });
+  const [root, setRoot] = useState(null);
 
   return (
     <Box fill>
@@ -36,10 +41,9 @@ const App = () => {
       </Box>
       <Box align="center" fill="horizontal" justify="center">
         <Accordion>
-          {report.testResults.map((testResult, i) => {
-            console.log({ testResult, i });
-            return <TestResult index={i} testResult={testResult} />;
-          })}
+          {report.testResults.map((testResult, i) => (
+            <TestResult index={i} root={root} testResult={testResult} />
+          ))}
         </Accordion>
       </Box>
     </Box>
