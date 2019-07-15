@@ -16,6 +16,10 @@ if (args[0] === "--serve") {
     res.sendFile(path.join(__dirname, "../report/index.html"));
   });
 
+  app.get("/root", (req, res) => {
+    res.send(process.cwd());
+  });
+
   const rawReport = fs
     .readFileSync(path.join(__dirname, "../../../report/report.json"))
     .toString();
@@ -24,7 +28,6 @@ if (args[0] === "--serve") {
   report.testResults.forEach(
     (testResult: { testFilePath: string }, i: number) => {
       const { testFilePath } = testResult;
-      console.log(testFilePath + " " + i);
 
       app.get(`/${i}`, (req, res) => res.sendFile(testFilePath));
     }

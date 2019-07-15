@@ -1,20 +1,17 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { AccordionPanel, Box } from "grommet";
+import path from "path";
 
-const TestResult = ({ testResult, index }) => {
+const TestResult = ({ index, root, testResult }) => {
   const [fileContents, setFileContents] = useState("");
 
   useEffect(() => {
-    console.log({ index });
-    axios.get(`/${index}`).then(response => {
-      console.log({ fileContents });
-      setFileContents(response.data);
-    });
+    axios.get(`/${index}`).then(response => setFileContents(response.data));
   }, []);
 
   return (
-    <AccordionPanel label={testResult.testFilePath}>
+    <AccordionPanel label={testResult.testFilePath.replace(root, "")}>
       <Box height="medium" overflow="auto">
         <pre>{fileContents}</pre>
       </Box>
