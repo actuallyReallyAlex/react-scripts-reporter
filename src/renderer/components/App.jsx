@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Accordion, Box, Heading, Text } from "grommet";
 import TestResult from "./TestResult";
+import Sidebar from "./Sidebar";
 
 const App = () => {
   useEffect(() => {
@@ -27,24 +28,30 @@ const App = () => {
   const [root, setRoot] = useState(null);
 
   return (
-    <Box fill>
-      <Heading level="1">Test Results</Heading>
-      <Box fill="horizontal">
-        <Text>Number of Failed Test Suites: {report.numFailedTestSuites}</Text>
-        <Text>Number of Failed Tests: {report.numFailedTests}</Text>
-        <Text>Number of Passed Test Suites: {report.numPassedTestSuites}</Text>
-        <Text>Number of Passed Tests: {report.numPassedTests}</Text>
-        <Text>
-          Number of Skipped Test Suites: {report.numPendingTestSuites}
-        </Text>
-        <Text>Number of Skipped Tests: {report.numPendingTests}</Text>
-      </Box>
-      <Box align="center" fill="horizontal" justify="center">
-        <Accordion>
-          {report.testResults.map((testResult, i) => (
-            <TestResult index={i} root={root} testResult={testResult} />
-          ))}
-        </Accordion>
+    <Box direction="row" fill>
+      <Sidebar report={report} root={root} />
+      <Box fill pad="small">
+        <Box fill="horizontal">
+          <Text>
+            Number of Failed Test Suites: {report.numFailedTestSuites}
+          </Text>
+          <Text>Number of Failed Tests: {report.numFailedTests}</Text>
+          <Text>
+            Number of Passed Test Suites: {report.numPassedTestSuites}
+          </Text>
+          <Text>Number of Passed Tests: {report.numPassedTests}</Text>
+          <Text>
+            Number of Skipped Test Suites: {report.numPendingTestSuites}
+          </Text>
+          <Text>Number of Skipped Tests: {report.numPendingTests}</Text>
+        </Box>
+        <Box align="center" fill="horizontal" justify="center">
+          <Accordion>
+            {report.testResults.map((testResult, i) => (
+              <TestResult index={i} root={root} testResult={testResult} />
+            ))}
+          </Accordion>
+        </Box>
       </Box>
     </Box>
   );
