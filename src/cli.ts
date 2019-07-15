@@ -2,6 +2,7 @@
 
 import express from "express";
 import path from "path";
+import fs from "fs";
 
 const [, , ...args] = process.argv;
 
@@ -14,6 +15,20 @@ if (args[0] === "--serve") {
   app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, "../report/index.html"));
   });
+
+  const rawReport = fs
+    .readFileSync(path.join(__dirname, "../../../report/report.json"))
+    .toString();
+  const report = JSON.parse(rawReport);
+
+  report.testResults.forEach(
+    (testResult: { testFilePath: string }, i: number) => {
+      const { testFilePath } = testResult;
+      console.log(testFilePath + " " + i);
+
+      app.get(`/${i}`, (req, res) => res.sendFile(testFilePath));
+    }
+  );
 
   app.get("/report", (req, res) => {
     res.sendFile(path.join(__dirname, "../../../report/report.json"));
