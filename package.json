@@ -56,7 +56,7 @@
     "build": "tsc --pretty",
     "postbuild": "yarn build-renderer",
     "build-renderer": "webpack --mode production --display-error-details",
-    "postbuild-renderer": "mkdir lib/renderer && cp src/renderer/index.html lib/renderer && cp src/renderer/main.js lib/renderer",
+    "postbuild-renderer": "mkdir lib/renderer && cp src/renderer/index.html lib/renderer && cp src/renderer/main.js lib/renderer && cp -R src/renderer/assets lib/renderer",
     "dev": "yarn build && jest",
     "test": "jest --reporters=default --coverage",
     "coveralls": "jest --coverage --coverageReporters=text-lcov | coveralls",
