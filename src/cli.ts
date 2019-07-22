@@ -3,6 +3,10 @@
 import express from "express";
 import path from "path";
 import fs from "fs";
+const Sentry = require("@sentry/node");
+Sentry.init({
+  dsn: "https://d8d9d7aef3594c6388835cdaf834b781@sentry.io/1510035"
+});
 
 const [, , ...args] = process.argv;
 
