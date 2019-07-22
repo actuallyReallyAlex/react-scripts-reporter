@@ -15,25 +15,12 @@ if (args[0] === "--serve") {
   const port = 5000;
 
   app.use(express.static("report"));
-  app.use(express.static("assets"));
 
   app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, "../report/index.html"));
   });
 
-  app.get("/assets/site.webmanifest", (req, res) => {
-    res.sendFile(path.join(__dirname, "../report/site.webmanifest"));
-  });
-  app.get("/assets/apple-touch-icon.png", (req, res) => {
-    res.sendFile(path.join(__dirname, "../report/apple-touch-icon.png"));
-  });
-  app.get("/assets/favicon-32x32.png", (req, res) => {
-    res.sendFile(path.join(__dirname, "../report/favicon-32x32.png"));
-  });
-  app.get("/assets/favicon-16x16.png", (req, res) => {
-    res.sendFile(path.join(__dirname, "../report/favicon-16x16.png"));
-  });
-  app.get("/assets/favicon.ico", (req, res) => {
+  app.get("/favicon.ico", (req, res) => {
     res.sendFile(path.join(__dirname, "../report/favicon.ico"));
   });
 
