@@ -4,11 +4,15 @@ import boxen = require("boxen");
 import ProgressBar from "progress";
 import chalk = require("chalk");
 import { Processor } from "../processor/Processor";
+const Sentry = require("@sentry/node");
 
 export class Reporter {
   public progressBar!: ProgressBar;
 
   constructor(config: any, options: any) {
+    Sentry.init({
+      dsn: "https://d8d9d7aef3594c6388835cdaf834b781@sentry.io/1510035"
+    });
     const borderStyle = boxen.BorderStyle.Double;
     console.clear();
     console.log(

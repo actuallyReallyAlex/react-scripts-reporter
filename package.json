@@ -7,6 +7,8 @@
     "react-scripts-reporter": "lib/cli.js"
   },
   "dependencies": {
+    "@sentry/browser": "^5.5.0",
+    "@sentry/node": "5.5.0",
     "axios": "^0.19.0",
     "boxen": "^4.1.0",
     "chalk": "^2.4.2",
