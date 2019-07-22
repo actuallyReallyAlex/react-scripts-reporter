@@ -39,26 +39,10 @@ export class Processor {
   }
 
   public createAssets() {
-    const webmanifest = fs.readFileSync(
-      path.resolve(__dirname, "../renderer/assets/site.webmanifest")
-    );
-    const appleTouchIcon = fs.readFileSync(
-      path.resolve(__dirname, "../renderer/assets/apple-touch-icon.png")
-    );
-    const favicon32 = fs.readFileSync(
-      path.resolve(__dirname, "../renderer/assets/favicon-32x32.png")
-    );
-    const favicon16 = fs.readFileSync(
-      path.resolve(__dirname, "../renderer/assets/favicon-16x16.png")
-    );
     const favicon = fs.readFileSync(
-      path.resolve(__dirname, "../renderer/assets/favicon.ico")
+      path.resolve(__dirname, "../renderer/favicon.ico")
     );
 
-    fs.writeFileSync("./report/site.webmanifest", webmanifest);
-    fs.writeFileSync("./report/apple-touch-icon.png", appleTouchIcon);
-    fs.writeFileSync("./report/favicon-32x32.png", favicon32);
-    fs.writeFileSync("./report/favicon-16x16.png", favicon16);
     fs.writeFileSync("./report/favicon.ico", favicon);
   }
 }
