@@ -1,5 +1,17 @@
 # Changelog
 
+## v0.10.0 (21/07/2019)
+- 🔀 Merge pull request #28 from alexlee-dev/favicon  48f90dd
+- 🎨 Add Favicon.  5f44cf4
+- 🔀 Merge pull request #27 from alexlee-dev/sentry  b4ab194
+- 🐛 Add Sentry.  148011e
+- 🔀Merge pull request #26 from alexlee-dev/changelog  367cfcf
+- 📝 Add Changelog.  b4b2adf
+- 📝 Add Gren configuration (github-release-notes).  b47d085
+
+https://github.com/alexlee-dev/react-scripts-reporter/compare/v0.9.1...v0.10.0
+---
+
 ## v0.9.1 (15/07/2019)
 - ✏️ Fix old build.  eba0912
 
