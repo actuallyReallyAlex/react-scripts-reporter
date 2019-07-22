@@ -1,7 +1,15 @@
 import React from "react";
-import { Box, Paragraph, Heading, Text } from "grommet";
+import { Box, Button, Heading, Text } from "grommet";
+import { connect } from "react-redux";
+import { setContent, setCurrentTest } from "../redux/actions/ui";
 
-const Sidebar = ({ report, root }) => {
+const Sidebar = ({ dispatch, report, root }) => {
+  const handleClickMain = () => dispatch(setContent("Main"));
+  const handleClickTest = (testFileIndex, testFileName) => {
+    dispatch(setCurrentTest(testFileIndex, testFileName));
+    dispatch(setContent("TestDetails"));
+  };
+
   return (
     <Box
       border={{ color: "white", side: "right" }}
@@ -12,16 +20,40 @@ const Sidebar = ({ report, root }) => {
       <Heading level="1" size="medium">
         Test Results
       </Heading>
-      {report.testResults.map(testResult => (
-        <Text
-          color={testResult.failureMessage ? "status-error" : "status-ok"}
-          size="small"
-        >
-          {testResult.testFilePath.replace(root, "")}
-        </Text>
+      <Button
+        hoverIndicator
+        label={
+          <Text color="white" size="small">
+            Main
+          </Text>
+        }
+        onClick={handleClickMain}
+        plain
+      />
+      {report.testResults.map((testResult, testFileIndex) => (
+        <Button
+          hoverIndicator
+          label={
+            <Text
+              color={testResult.failureMessage ? "status-error" : "status-ok"}
+              size="small"
+            >
+              {testResult.testFilePath.replace(root, "")}
+            </Text>
+          }
+          onClick={() =>
+            handleClickTest(
+              testFileIndex,
+              testResult.testFilePath.replace(root, "")
+            )
+          }
+          plain
+        />
       ))}
     </Box>
   );
 };
 
-export default Sidebar;
+const mapDispatchToProps = ({ dispatch }) => ({ dispatch });
+
+export default connect(mapDispatchToProps)(Sidebar);
